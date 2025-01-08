@@ -53,9 +53,9 @@ document.getElementById('togglePassword').addEventListener('click', function () 
   
     // Change icon and add animation
     if (isPasswordVisible) {
-      passwordIcon.src = '/assets/Invisible.png';
+      passwordIcon.src = './assets/Invisible.png';
     } else {
-      passwordIcon.src = '/assets/Eye.png';
+      passwordIcon.src = './assets/Eye.png';
     }
   
     // Add animation effect to the icon
