@@ -127,13 +127,40 @@ body {
 .input-with-icon:focus-within {
   border-color: #007bff; /* Ubah warna border saat fokus */
 }
-
-@media (max-width: 500px) {
+@media (max-width: 768px) {
   .signup-container {
-    padding: 15px;
+    width: 80%; /* Kurangi lebar untuk tablet */
+    padding: 30px; /* Kurangi padding untuk tablet */
   }
 
   .form-group button {
     font-size: 14px;
+    padding: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .signup-container {
+    width: 90%; /* Lebar hampir penuh untuk smartphone */
+    padding: 20px; /* Kurangi padding untuk layar lebih kecil */
+  }
+
+  .signup-container h1 {
+    font-size: 24px; /* Kurangi ukuran font judul */
+  }
+
+  .form-group input {
+    padding: 10px; /* Kurangi padding input */
+    font-size: 14px;
+  }
+
+  .form-group button {
+    font-size: 12px; /* Ukuran font tombol lebih kecil */
+    padding: 6px;
+  }
+
+  .input-with-icon img {
+    width: 16px; /* Perkecil ikon */
+    height: 16px;
   }
 }
