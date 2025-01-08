@@ -118,7 +118,7 @@ nav ul li a {
   height: 100px; /* Atur tinggi agar lebih proporsional */
   border-radius: 8px;
   object-fit: cover; /* Memastikan gambar tidak terdistorsi */
-  margin: 5px; /* Tamb
+  margin: 5px; 
   overflow-y: scroll;
   scrollbar-width: none;
 }
