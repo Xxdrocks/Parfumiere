@@ -139,6 +139,7 @@ nav ul li a {
 @media screen and (max-width: 768px) {
 
   * {
+    overflow: hidden;
     margin: 10px 10px;
   }
   nav ul {
