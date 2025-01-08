@@ -7,9 +7,8 @@
 body {
   background-color: #f4f4f4;
   display: flex;
-  justify-content: flex-start; /* Mengatur elemen ke sisi kiri */
-  align-items: center;
-  background-image: url(/assets/blur-bg.png);
+  justify-content: center; /* Mengatur elemen ke tengah secara horizontal */
+  align-items: center; /* Mengatur elemen ke tengah secara vertikal */
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -18,16 +17,18 @@ body {
 
 .signup {
   display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%; /* Pastikan signup mengambil lebar penuh */
 }
 
 .signup-container {
-  width: 1000px;
+  width: 900px;
   max-width: 500px;
-  background: linear-gradient(to right, #05131d 10%, #0d314d 50%, #05131d 150%);
-  padding: 90px;
-  border-radius: 20px 0px 0px 20px;
+  background: linear-gradient(to right, #90a2af 10%, #0d314d 50%, #05131d 150%);
+  padding: 50px;
+  border-radius: 20px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  margin: 0px 90px;
 }
 
 .signup-container h1 {
@@ -35,7 +36,7 @@ body {
   font-optical-sizing: auto;
   font-weight: 700;
   font-style: normal;
-  color: #f3d0d7;
+  color: #ffffff;
   text-align: center;
   margin-bottom: 20px;
 }
@@ -46,7 +47,7 @@ body {
   font-weight: 600;
   font-style: normal;
   margin-bottom: 15px;
-  
+  padding: 5px;
 }
 
 .form-group label {
@@ -57,13 +58,12 @@ body {
 }
 
 .form-group input {
-  background-color: none;
   font-family: "DM Sans", serif;
   font-optical-sizing: auto;
   font-weight: 600;
   font-style: normal;
   width: 100%;
-  padding: 10px;
+  padding: 15px;
   border: 1px solid #ccc;
   border-radius: 10px;
   color: black;
@@ -75,24 +75,23 @@ body {
   font-weight: 600;
   font-style: normal;
   width: 100%;
-  padding: 10px;
-  background-color: #f3d0d7;
+  padding: 8px;
+  background-color: #ffffff;
   color: black;
   border: none;
-  border-radius: 5px;
+  border-radius: 15px;
   cursor: pointer;
   font-size: 16px;
 }
 
 .form-group button:hover {
-    transition: 0.1s;
+  transition: 0.1s;
   background-color: #f4f4f4;
   color: black;
 }
 
 .form-group button:active {
-    scale: 0.9;
-
+  scale: 0.9;
 }
 
 .form-group .error {
@@ -118,7 +117,7 @@ body {
   flex: 1; /* Membuat input mengambil sisa ruang */
   border: none;
   outline: none;
-  padding: 10px 0; /* Hapus padding horizontal karena sudah diatur di .input-with-icon */
+  padding: 10px 10px; /* Hapus padding horizontal karena sudah diatur di .input-with-icon */
 }
 
 .input-with-icon input::placeholder {
@@ -127,13 +126,6 @@ body {
 
 .input-with-icon:focus-within {
   border-color: #007bff; /* Ubah warna border saat fokus */
-}
-
-.image {
-  width: 800px;
-  margin-left: -210px;
-  z-index: -1;
-  border-radius: 30px;
 }
 
 @media (max-width: 500px) {

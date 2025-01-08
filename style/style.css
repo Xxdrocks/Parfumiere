@@ -110,10 +110,10 @@ nav ul li a {
 .right-content a:active {
   transform: scale(0.95);
 }
-
 .edt-content {
-  display: flex;
-  flex-direction: column;
+  display: grid; /* Menggunakan Grid Layout */
+  grid-template-columns: 1fr 1fr; /* Membagi konten menjadi 2 kolom */
+  grid-gap: 10px; /* Jarak antar elemen di grid */
   width: 30%;
   max-height: 300px;
   position: relative;
@@ -124,9 +124,10 @@ nav ul li a {
 }
 
 .edt-content img {
-  width: 350px;
-  height: 350px;
-  flex-shrink: 0;
+  width: 100%; /* Gambar akan menyesuaikan lebar kolom */
+  height: auto; /* Tinggi gambar akan proporsional */
+  border-radius: 8px; /* Opsional: Tambahkan border radius jika diperlukan */
+  object-fit: cover; /* Memastikan gambar tidak terdistorsi */
 }
 
 .edt-parfume {
@@ -162,6 +163,7 @@ nav ul li a {
   
     .left-content p {
       font-size: 14px;
+      
     }
   
     

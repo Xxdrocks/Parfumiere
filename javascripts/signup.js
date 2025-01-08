@@ -1,44 +1,46 @@
-const database = [];
+// Ambil elemen form login
+const loginForm = document.getElementById('signupForm');
 
-const signupForm = document.getElementById('signupForm');
+// Event listener untuk menangani form login
+loginForm.addEventListener('submit', (e) => {
+  e.preventDefault(); // Mencegah refresh halaman
 
-signupForm.addEventListener('submit', (e) => {
-    e.preventDefault(); 
+  // Ambil nilai dari input
+  const username = document.getElementById('username').value;
+  const password = document.getElementById('password').value;
 
-    const username = document.getElementById('username').value;
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
+  // Ambil data dari localStorage
+  const users = JSON.parse(localStorage.getItem('users')) || [];
 
-    if (!username || !email || !password) {
-        Swal.fire({
-            icon: 'error',
-            title: 'Oops...',
-            text: 'All fields are required!',
-            confirmButtonColor: '#3085d6'
-        });
-        return;
-    }
+  // Cek apakah username dan password cocok
+  const user = users.find(
+    (user) => user.username === username && user.password === password
+  );
 
-    const user = { username, email, password };
-    database.push(user);
+  if (user) {
+    // Simpan data pengguna yang login ke localStorage
+    localStorage.setItem('loggedInUser', JSON.stringify(user));
 
-    console.log('Current database:', database);
-
+    // Notifikasi sukses menggunakan SweetAlert
     Swal.fire({
-        icon: 'success',
-        title: 'Signup Successful!',
-        text: 'You have successfully signed up.',
-        confirmButtonText: 'Proceed',
-        confirmButtonColor: '#28a745'
-    }).then(() => {
-        window.open('./index.html', '_blank');
+      icon: 'success',
+      title: 'Login successful!',
+      text: `Welcome, ${user.username}!`,
     });
 
-    signupForm.reset();
+    // Redirect atau tindakan lain setelah login
+    setTimeout(() => {
+      window.location.href = "index.html"; // Ganti dengan halaman tujuan setelah login
+    }, 1500);
+  } else {
+    // Jika username atau password salah
+    Swal.fire({
+      icon: 'error',
+      title: 'Login failed',
+      text: 'Invalid username or password!',
+    });
+  }
 });
-
-
-
 
 
 document.getElementById('togglePassword').addEventListener('click', function () {
@@ -46,18 +48,22 @@ document.getElementById('togglePassword').addEventListener('click', function () 
     const passwordIcon = document.getElementById('togglePassword');
     const isPasswordVisible = passwordField.type === 'text';
   
+    // Toggle password visibility
     passwordField.type = isPasswordVisible ? 'password' : 'text';
   
+    // Change icon and add animation
     if (isPasswordVisible) {
       passwordIcon.src = '/assets/Invisible.png';
     } else {
       passwordIcon.src = '/assets/Eye.png';
     }
   
+    // Add animation effect to the icon
     passwordIcon.style.transform = 'rotate(360deg)';
     
+    // Reset the animation after it's done
     setTimeout(() => {
       passwordIcon.style.transform = 'rotate(0deg)';
-    }, 300); 
+    }, 300); // Time in milliseconds to match the duration of transition
   });
   
