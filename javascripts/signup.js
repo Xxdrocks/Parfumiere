@@ -48,7 +48,7 @@ document.getElementById('togglePassword').addEventListener('click', function () 
     const passwordIcon = document.getElementById('togglePassword');
     const isPasswordVisible = passwordField.type === 'text';
   
-    // Toggle password visibility
+   
     passwordField.type = isPasswordVisible ? 'password' : 'text';
   
     // Change icon and add animation

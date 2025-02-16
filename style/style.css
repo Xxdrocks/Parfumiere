@@ -1,5 +1,4 @@
 * {
-  margin: 10px 10px;
   padding: 0;
   box-sizing: border-box;
   list-style: none;
@@ -8,6 +7,11 @@
 
 html {
   scroll-behavior: smooth;
+}
+
+nav {
+  margin: 20px 40px;
+
 }
 
 nav ul {
@@ -20,23 +24,65 @@ nav ul {
 }
 
 nav ul li a {
-  color: #000000;
+  color: #ffffff;
 }
 
+body {
+  background-color: #072530;
+  margin: 0;
+}
+
+.universal-background {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  width: 100%; /* Lebar penuh */
+  height: 177.78vw; /* 9:16 aspect ratio (16/9 = 1.777, jadi 100vw * (16/9)) */
+  max-height: 4000vh; /* Jangan lebih tinggi dari layar */
+  object-fit: cover;/* Agar tidak menghalangi konten lain */
+}
+
+.universal-layer {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%; /* Lebar penuh */
+  height: 177.78vw; /* 9:16 aspect ratio (16/9 = 1.777, jadi 100vw * (16/9)) */
+  max-height: 10000vh; /* Jangan lebih tinggi dari layar */
+  object-fit: cover;/* Agar tidak menghalangi konten lain */
+}
+
+.universal-layer2 {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  width: 100%; /* Lebar penuh */
+  height: 177.78vw; /* 9:16 aspect ratio (16/9 = 1.777, jadi 100vw * (16/9)) */
+  max-height: 10000vh; /* Jangan lebih tinggi dari layar */
+  object-fit: cover;/* Agar tidak menghalangi konten lain */
+}
+
+
 .content {
-  margin: 0px 50px;
+  margin: 0px 30px;
   display: flex;
 }
 
 .left-content {
-  margin-top: 100px;
+  margin-left: 70px;
+  color: #ffffff;
+  margin-top: 50px;
   width: 340px;
   flex-direction: column;
   justify-content: left;
 }
 
 .left-content h1 {
-  font-size: 65px;
+  margin: 0;
+  font-size: 50px;
   font-family: "Syne", serif;
   font-optical-sizing: auto;
   font-weight: 700;
@@ -55,25 +101,25 @@ nav ul li a {
   justify-content: center;
   display: flex;
   margin-top: -125px;
-  margin-left: -125px;
-  z-index: -5;
+  margin-left: -60px;
 }
 
 .middle-content img {
   top: 15%;
   left: 32%;
-
-  width: 750px;
-  height: 650px;
+  width: 610px;
+  height: 590px;
 }
 
-.mid-parfume img::hover {
+.mid-parfume img:hover {
   filter: none;
+  cursor: pointer;
   transition: 0.3s;
   scale: 1.1;
 }
 
 .mid-parfume img {
+  z-index: 5;
   filter: blur(5px);
   box-shadow: 10px 10px 0px solid black;
   opacity: 80%;
@@ -81,6 +127,7 @@ nav ul li a {
   width: 500px;
   height: 500px;
 }
+
 
 .right-content {
   position: fixed;
@@ -93,7 +140,7 @@ nav ul li a {
 
 .right-content a {
   margin-top: 20px;
-  color: #000000;
+  color: #ffffff;
   font-size: 15px;
   font-family: "DM Sans", serif;
   font-optical-sizing: auto;
@@ -110,31 +157,49 @@ nav ul li a {
 .right-content a:active {
   transform: scale(0.95);
 }
-.edt-content {
-  display: grid; /* Menggunakan Grid Layout */
-  grid-template-columns: 1fr 1fr; /* Membagi konten menjadi 2 kolom */
-  grid-gap: 10px; /* Jarak antar elemen di grid */
-  width: 100px; /* Atur ulang ukuran gambar */
-  height: 100px; /* Atur tinggi agar lebih proporsional */
-  border-radius: 8px;
-  object-fit: cover; /* Memastikan gambar tidak terdistorsi */
-  margin: 5px; 
-  overflow-y: scroll;
-  scrollbar-width: none;
+
+
+.layer1 , img {
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+  margin: 0;
+  padding: 0;
+  right: 0;
+  left: 0;
 }
 
-.edt-content img {
-  width: 100%; /* Gambar akan menyesuaikan lebar kolom */
-  height: auto; /* Tinggi gambar akan proporsional */
-  border-radius: 8px; /* Opsional: Tambahkan border radius jika diperlukan */
-  object-fit: cover; /* Memastikan gambar tidak terdistorsi */
+.layer2 img {
+  margin-top: -55%;
+}
+
+.edt-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Dua kolom, tetapi space disesuaikan */
+  padding: 20px;
+  align-items: center; /* Gambar akan sejajar secara vertikal */
+  justify-content: center; /* Pusatkan grid */
 }
 
 .edt-parfume {
-  top: 0;
   display: flex;
-  transition: transform 0.5s ease-in-out;
+  justify-content: flex-start; /* Letakkan gambar di kiri */
 }
+
+.edt-parfume img {
+  width: 350px;
+  height: auto; /* Tinggi proporsional */
+  border-radius: 8px; /* Opsional: sudut gambar */
+  object-fit: cover; /* Pastikan gambar tidak terdistorsi */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animasi hover */
+  cursor: pointer;
+}
+
+.edt-parfume img:hover {
+  transform: scale(1.1); /* Zoom saat hover */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3); /* Efek bayangan */
+}
+
 
 @media screen and (max-width: 768px) {
 
@@ -203,6 +268,10 @@ nav ul li a {
     .edt-content img {
       width: 80px;
       height: 80px;
+    }
+
+    .edt-content {
+      grid-template-columns: repeat(1, 1fr); /* Satu kolom untuk layar kecil */
     }
   }
   
