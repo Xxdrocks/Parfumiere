@@ -11,6 +11,7 @@ html {
 
 nav {
   margin: 20px 40px;
+  z-index: 10;
 
 }
 
